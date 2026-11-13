@@ -3,12 +3,12 @@ import {
   Briefcase,
   Code2,
   Database,
-  FileLock2,
   GraduationCap,
   MonitorSmartphone,
   Package,
   ShieldCheck,
   Tv,
+  Workflow,
 } from 'lucide-react'
 
 export function IconeGitHub({ size = 20, ...props }) {
@@ -40,7 +40,7 @@ export const iconesServico = {
   banco: Database,
   tv: Tv,
   escudo: ShieldCheck,
-  cadeado: FileLock2,
+  ciclo: Workflow,
   responsivo: MonitorSmartphone,
 }
 

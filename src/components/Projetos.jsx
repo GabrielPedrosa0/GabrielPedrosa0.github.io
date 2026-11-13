@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import { ExternalLink } from 'lucide-react'
+import { BookOpen, ExternalLink } from 'lucide-react'
 import { useIdioma } from '../i18n.jsx'
 import ImagemProjeto from './ImagemProjeto.jsx'
 import ProjetoModal from './ProjetoModal.jsx'
@@ -20,7 +20,7 @@ export default function Projetos() {
           <p className="mt-4 text-[16px] leading-relaxed text-nevoa">{t.projetos.subtitulo}</p>
         </div>
 
-        <ul className="mt-14 grid gap-7 md:grid-cols-2">
+        <ul className={`mt-14 grid gap-7 ${t.projetos.itens.length > 1 ? 'md:grid-cols-2' : 'mx-auto max-w-2xl'}`}>
           {t.projetos.itens.map((projeto) => (
             <li
               key={projeto.id}
@@ -66,6 +66,18 @@ export default function Projetos() {
                       className={botaoIcone}
                     >
                       <IconeGitHub size={17} />
+                    </a>
+                  )}
+                  {projeto.links.docs && (
+                    <a
+                      href={projeto.links.docs}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${t.projetos.docs}: ${projeto.nome}`}
+                      title={t.projetos.docs}
+                      className={botaoIcone}
+                    >
+                      <BookOpen size={17} aria-hidden="true" />
                     </a>
                   )}
                   {projeto.links.demo && (

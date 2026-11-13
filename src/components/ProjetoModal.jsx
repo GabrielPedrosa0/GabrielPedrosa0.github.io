@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { Check, ExternalLink, X } from 'lucide-react'
+import { BookOpen, Check, ExternalLink, X } from 'lucide-react'
 import { useIdioma } from '../i18n.jsx'
 import { IconeGitHub } from './Icones.jsx'
 import { botaoPrimario, botaoSecundario, chip } from './estilos.js'
@@ -102,12 +102,18 @@ export default function ProjetoModal({ projeto, aoFechar }) {
             ))}
           </ul>
 
-          {(projeto.links.demo || projeto.links.codigo) && (
+          {(projeto.links.demo || projeto.links.docs || projeto.links.codigo) && (
             <div className="mt-9 flex flex-wrap gap-3">
               {projeto.links.demo && (
                 <a href={projeto.links.demo} target="_blank" rel="noreferrer" className={botaoPrimario}>
                   <ExternalLink size={17} aria-hidden="true" />
                   {t.projetos.demo}
+                </a>
+              )}
+              {projeto.links.docs && (
+                <a href={projeto.links.docs} target="_blank" rel="noreferrer" className={botaoSecundario}>
+                  <BookOpen size={17} aria-hidden="true" />
+                  {t.projetos.docs}
                 </a>
               )}
               {projeto.links.codigo && (
